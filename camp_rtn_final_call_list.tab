@@ -1,44 +1,39 @@
-create table CAMP_RTN_FINAL_CALL_LIST
-(
-  pts_call_source       VARCHAR2(10),
-  cuid                  NUMBER,
-  contract_id           NUMBER,
-  pts_cust_name         VARCHAR2(250),
-  pts_liscom            VARCHAR2(4000),
-  pts_promise_date      DATE,
-  pts_clz_visit         DATE,
-  pts_auto_cancel_date  DATE,
-  pts_max_credit_amount NUMBER,
-  pts_min_instalment    NUMBER,
-  pts_max_tenor         NUMBER,
-  pts_purpose           VARCHAR2(255),
-  pts_mobile1           VARCHAR2(255),
-  pts_mobile2           VARCHAR2(255),
-  pts_mobile3           VARCHAR2(255),
-  pts_mobile4           VARCHAR2(255),
-  pts_info1             VARCHAR2(4000),
-  pts_info2             VARCHAR2(4000),
-  pts_info3             VARCHAR2(4000),
-  pts_info4             VARCHAR2(4000),
-  pts_info5             VARCHAR2(4000),
-  pts_info6             VARCHAR2(4000),
-  pts_info7             VARCHAR2(4000),
-  pts_info8             VARCHAR2(4000),
-  pts_info9             VARCHAR2(4000),
-  pts_info10            VARCHAR2(4000),
-  tzone                 VARCHAR2(20),
-  campaign_type         VARCHAR2(50),
-  nums                  NUMBER
-)
-tablespace AP_CRM
-  pctfree 10
-  initrans 1
-  maxtrans 255
-  storage
-  (
-    initial 80K
-    next 1M
-    minextents 1
-    maxextents unlimited
-  );
 
+  CREATE TABLE "AP_CRM"."CAMP_RTN_FINAL_CALL_LIST" 
+   (	"PTS_CALL_SOURCE" VARCHAR2(10 CHAR), 
+	"CUID" NUMBER, 
+	"CONTRACT_ID" NUMBER, 
+	"PTS_CUST_NAME" VARCHAR2(250 CHAR), 
+	"PTS_LISCOM" VARCHAR2(4000 CHAR), 
+	"PTS_PROMISE_DATE" DATE, 
+	"PTS_CLZ_VISIT" DATE, 
+	"PTS_AUTO_CANCEL_DATE" DATE, 
+	"PTS_MAX_CREDIT_AMOUNT" NUMBER, 
+	"PTS_MIN_INSTALMENT" NUMBER, 
+	"PTS_MAX_TENOR" NUMBER, 
+	"PTS_PURPOSE" VARCHAR2(255 CHAR), 
+	"PTS_MOBILE1" VARCHAR2(255 CHAR), 
+	"PTS_MOBILE2" VARCHAR2(255 CHAR), 
+	"PTS_MOBILE3" VARCHAR2(255 CHAR), 
+	"PTS_MOBILE4" VARCHAR2(255 CHAR), 
+	"PTS_INFO1" VARCHAR2(4000 CHAR), 
+	"PTS_INFO2" VARCHAR2(4000 CHAR), 
+	"PTS_INFO3" VARCHAR2(4000 CHAR), 
+	"PTS_INFO4" VARCHAR2(4000 CHAR), 
+	"PTS_INFO5" VARCHAR2(4000 CHAR), 
+	"PTS_INFO6" VARCHAR2(4000 CHAR), 
+	"PTS_INFO7" VARCHAR2(4000 CHAR), 
+	"PTS_INFO8" VARCHAR2(4000 CHAR), 
+	"PTS_INFO9" VARCHAR2(4000 CHAR), 
+	"PTS_INFO10" VARCHAR2(4000 CHAR), 
+	"TZONE" VARCHAR2(20 CHAR), 
+	"CAMPAIGN_TYPE" VARCHAR2(50 CHAR), 
+	"NUMS" NUMBER, 
+	"DATE_GENERATED" DATE
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 81920 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "AP_CRM" ;
