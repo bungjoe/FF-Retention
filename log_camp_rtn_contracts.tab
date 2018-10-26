@@ -1,0 +1,71 @@
+create table LOG_CAMP_RTN_CONTRACTS
+(
+  log_date                  DATE,
+  time_inserted             VARCHAR2(10),
+  skp_client                INTEGER,
+  skp_credit_case           INTEGER,
+  credit_status             VARCHAR2(255),
+  skp_credit_substatus      INTEGER,
+  contract_type             VARCHAR2(25),
+  text_contract_number      VARCHAR2(80),
+  dtime_proposal            DATE,
+  dtime_pre_process         DATE,
+  dtime_process             DATE,
+  dtime_approval            DATE,
+  text_credit_status_reason VARCHAR2(255),
+  text_cancellation_reason  VARCHAR2(255),
+  days_approved             NUMBER,
+  credit_amount             NUMBER,
+  instalment                NUMBER,
+  tenor                     INTEGER,
+  alto_credit_amount        NUMBER,
+  alto_max_instalment       NUMBER,
+  alto_dtime_valid_to       TIMESTAMP(6),
+  alto_dtime_created        TIMESTAMP(6),
+  offr_interest_rate        NUMBER,
+  offr_max_credit_amount    NUMBER,
+  offr_max_tenor            NUMBER,
+  offr_max_instalment       NUMBER,
+  offr_min_instalment       NUMBER,
+  dtime_app_created         DATE
+)
+partition by range (LOG_DATE) interval (NUMTOYMINTERVAL(1,'MONTH'))
+(
+  partition INIT_PART values less than (TO_DATE(' 2018-09-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace AP_CRM
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 8M
+      next 1M
+      minextents 1
+      maxextents unlimited
+    ),
+  partition SYS_P553408 values less than (TO_DATE(' 2018-10-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace AP_CRM
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 8M
+      next 1M
+      minextents 1
+      maxextents unlimited
+    ),
+  partition SYS_P569694 values less than (TO_DATE(' 2018-11-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace AP_CRM
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 8M
+      next 1M
+      minextents 1
+      maxextents unlimited
+    )
+);
+

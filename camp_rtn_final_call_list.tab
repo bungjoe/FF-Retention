@@ -1,0 +1,44 @@
+create table CAMP_RTN_FINAL_CALL_LIST
+(
+  pts_call_source       VARCHAR2(10),
+  cuid                  NUMBER,
+  contract_id           NUMBER,
+  pts_cust_name         VARCHAR2(250),
+  pts_liscom            VARCHAR2(4000),
+  pts_promise_date      DATE,
+  pts_clz_visit         DATE,
+  pts_auto_cancel_date  DATE,
+  pts_max_credit_amount NUMBER,
+  pts_min_instalment    NUMBER,
+  pts_max_tenor         NUMBER,
+  pts_purpose           VARCHAR2(255),
+  pts_mobile1           VARCHAR2(255),
+  pts_mobile2           VARCHAR2(255),
+  pts_mobile3           VARCHAR2(255),
+  pts_mobile4           VARCHAR2(255),
+  pts_info1             VARCHAR2(4000),
+  pts_info2             VARCHAR2(4000),
+  pts_info3             VARCHAR2(4000),
+  pts_info4             VARCHAR2(4000),
+  pts_info5             VARCHAR2(4000),
+  pts_info6             VARCHAR2(4000),
+  pts_info7             VARCHAR2(4000),
+  pts_info8             VARCHAR2(4000),
+  pts_info9             VARCHAR2(4000),
+  pts_info10            VARCHAR2(4000),
+  tzone                 VARCHAR2(20),
+  campaign_type         VARCHAR2(50),
+  nums                  NUMBER
+)
+tablespace AP_CRM
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 80K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

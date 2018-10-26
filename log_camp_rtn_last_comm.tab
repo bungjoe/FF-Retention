@@ -1,0 +1,62 @@
+create table LOG_CAMP_RTN_LAST_COMM
+(
+  log_date                       DATE,
+  time_inserted                  VARCHAR2(8),
+  date_call                      DATE,
+  skf_communication_record       INTEGER not null,
+  skp_client                     INTEGER not null,
+  skp_credit_case                INTEGER not null,
+  name_communication_channel     VARCHAR2(255),
+  name_communication_type        VARCHAR2(255),
+  name_communication_subtype     VARCHAR2(255),
+  name_comm_subtype_specif       VARCHAR2(255),
+  name_comm_subtype_sub_specif   VARCHAR2(255),
+  name_communication_status      VARCHAR2(255),
+  name_communication_result_type VARCHAR2(255),
+  text_note                      VARCHAR2(4000),
+  text_contact                   VARCHAR2(255),
+  sub_campaign                   VARCHAR2(250),
+  action                         VARCHAR2(48),
+  date_promise                   DATE,
+  dt_cancel_request              DATE
+)
+partition by range (LOG_DATE) interval (NUMTOYMINTERVAL(1,'MONTH'))
+(
+  partition INIT_PART values less than (TO_DATE(' 2018-09-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace AP_CRM
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 8M
+      next 1M
+      minextents 1
+      maxextents unlimited
+    ),
+  partition SYS_P553409 values less than (TO_DATE(' 2018-10-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace AP_CRM
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 8M
+      next 1M
+      minextents 1
+      maxextents unlimited
+    ),
+  partition SYS_P569695 values less than (TO_DATE(' 2018-11-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace AP_CRM
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 8M
+      next 1M
+      minextents 1
+      maxextents unlimited
+    )
+);
+

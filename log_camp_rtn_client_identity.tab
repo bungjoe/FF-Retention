@@ -1,0 +1,68 @@
+create table LOG_CAMP_RTN_CLIENT_IDENTITY
+(
+  log_date          DATE,
+  time_inserted     VARCHAR2(10),
+  skp_client        INTEGER,
+  skp_credit_case   INTEGER,
+  id_cuid           INTEGER,
+  name_first        VARCHAR2(150),
+  name_last         VARCHAR2(80),
+  name_gender       VARCHAR2(80),
+  name_mother       VARCHAR2(80),
+  name_birth_place  VARCHAR2(255),
+  date_birth        DATE,
+  id_ktp            VARCHAR2(45),
+  expiry_date_ktp   DATE,
+  full_address      VARCHAR2(1849),
+  name_town         VARCHAR2(255),
+  name_district     VARCHAR2(255),
+  name_subdistrict  VARCHAR2(255),
+  name_zip          VARCHAR2(50),
+  mobile1           VARCHAR2(255),
+  mobile2           VARCHAR2(255),
+  mobile3           VARCHAR2(255),
+  mobile4           VARCHAR2(255),
+  email             VARCHAR2(255),
+  last_cz_page      VARCHAR2(500),
+  last_cz_page_date TIMESTAMP(6)
+)
+partition by range (LOG_DATE) interval (NUMTOYMINTERVAL(1,'MONTH'))
+(
+  partition INIT_PART values less than (TO_DATE(' 2018-09-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace AP_CRM
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 8M
+      next 1M
+      minextents 1
+      maxextents unlimited
+    ),
+  partition SYS_P553410 values less than (TO_DATE(' 2018-10-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace AP_CRM
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 8M
+      next 1M
+      minextents 1
+      maxextents unlimited
+    ),
+  partition SYS_P569696 values less than (TO_DATE(' 2018-11-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace AP_CRM
+    pctfree 10
+    initrans 1
+    maxtrans 255
+    storage
+    (
+      initial 8M
+      next 1M
+      minextents 1
+      maxextents unlimited
+    )
+);
+
