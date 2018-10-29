@@ -204,7 +204,8 @@ BEGIN
            '-' pts_info10,
            case when tm_zone.code_timezone = 'DFT' then 'WIB' else tm_zone.code_timezone end tzone,
            'FF PTS' campaign_type,
-           row_number() over (order by bs.dtime_app_created asc) nums
+           row_number() over (order by bs.dtime_app_created asc) nums,
+					 trunc(sysdate)
     from con bs
     left join owner_Dwh.Dc_Contract dcc on bs.skp_credit_case = dcc.skp_credit_case
     left join ap_bicc.clt_loan_purpose pup on trim(dcc.text_loan_purpose) = pup.code_loan_purpose
@@ -216,6 +217,4 @@ BEGIN
 		commit;
 		pstats('camp_rtn_final_call_list');
 		AP_PUBLIC.CORE_LOG_PKG.pFinish;
-end;
-/
-
+end; 
